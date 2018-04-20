@@ -6,14 +6,26 @@
 	<link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-	<h1>Cost Splitter</h1>
+	<div class="container">
+		<h1 class="title">Cost Splitter</h1>
+		<div class="description">
+			<p>You can split cost to number of people. Enter Total Cost in Total field and Number of People to People field, then hit SPLIT button</p>
+			<p>The result will show under the inputs</p>
+		</div>
+		<div>
+			<label for="total cost">Total Cost</label>
+			<input id="total" class="input isBlock isFull" type="text" placeholder="Total Cost">
+			<label for="number of split">Split to</label>
+			<input id="people" class="input isBlock isFull" type="text" placeholder="Number to split">
+			<div class="btn-group center">
+				<button id="btn_submit" class="btn isSubmit" type="submit">SPLIT</button>
+				<button id="btn_cancel" class="btn isCancel" type="cancel">CLEAR</button>
+			</div>
+		</div>
 
-	<input id="total" type="text" placeholder="Total Cost">
-	<input id="people" type="text" placeholder="Number to split">
-	<button id="btn_submit" type="submit">SPLIT</button>
-	<button type="cancel">CLEAR</button>
-
-	<div id="result"></div>
+		<h3 class="title">Result</h3>
+		<div><span id="result">Result shows here</span></div>
+	</div>
 	<script src="js/app.js"></script>
 </body>
 </html>

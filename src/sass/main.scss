@@ -1,1 +1,74 @@
-$primary: white;
+@import 'variables';
+@import 'mixins';
+@import '~normalize.css/normalize';
+
+body {
+	font-family: $font-primary;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.container{
+	padding: 5%;
+	&.center{
+		text-align: center;
+	}
+}
+
+.title {
+	text-align: center;
+	padding-bottom: 5px;
+	border-bottom: 2px solid $light-blue;
+}
+
+.error {
+	color: $red;
+}
+
+.input {
+	border: 1px solid $light-gray;
+	padding: 10px 15px;
+	@include border-radius(5px);
+	&:focus {
+		border: 1px solid $light-blue;
+    	box-shadow: 0 1px 1px rgba(0, 190, 229, 0.075) inset, 0 0 8px rgba(0, 190, 229, 0.6);
+		outline: none;
+	}
+	&.isBlock{
+		display: block;
+		margin-bottom: 10px;
+	}
+	&.isFull {
+		width: 100%;
+	}
+}
+
+.btn {
+	background: white;
+	padding: 5px 15px;
+	border: none;
+	@include border-radius(5px);
+	@include box-shadow(0, 2px, 5px, $light-gray);
+	&.isSubmit {
+		background: $success;
+		color: white;
+	}
+	&.isCancel {
+		background: $cancel;
+		color: $black;
+	}
+	&-group{
+		padding: 1em;
+		button {
+			display: inline-block;
+		}
+		button:first-child{
+			margin-right: 1em;
+		}
+		&.center {
+			text-align: center;
+		}
+	}
+}

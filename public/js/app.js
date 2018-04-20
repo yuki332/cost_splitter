@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,17 +73,23 @@
 "use strict";
 
 
-var _notification = __webpack_require__(2);
+var _notification = __webpack_require__(3);
 
 var _notification2 = _interopRequireDefault(_notification);
 
-var _calculate = __webpack_require__(8);
+var _calculate = __webpack_require__(2);
 
 var _calculate2 = _interopRequireDefault(_calculate);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var submit = document.getElementById('btn_submit');
+var cancel = document.getElementById('btn_cancel');
+
+cancel.addEventListener('click', function () {
+	document.getElementById('total').value = '';
+	document.getElementById('people').value = '';
+});
 
 submit.addEventListener('click', function () {
 	var total = document.getElementById('total').value;
@@ -92,7 +98,8 @@ submit.addEventListener('click', function () {
 	var calc = new _calculate2.default(total, people);
 	calc.validate();
 	if (calc.status) {
-		target.innerHTML = calc.result.toFixed(2);
+		target.innerHTML = '&#36 ' + calc.result.toFixed(2);
+		target.classList.remove('error');
 	} else {
 		var errorMessages = [];
 		for (var key in calc.messages) {
@@ -102,6 +109,7 @@ submit.addEventListener('click', function () {
 			}
 		}
 		target.innerHTML = errorMessages.join('</br>');
+		target.classList.add('error');
 	}
 });
 
@@ -113,41 +121,6 @@ submit.addEventListener('click', function () {
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-function announce(message) {
-	alert(message);
-};
-
-function log(message) {
-	console.log(message);
-};
-
-exports.default = {
-	announce: announce,
-	log: log
-};
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(0);
-module.exports = __webpack_require__(1);
-
-
-/***/ }),
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -200,6 +173,37 @@ var Calc = function () {
 }();
 
 exports.default = Calc;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+function announce(message) {
+	alert(message);
+};
+
+function log(message) {
+	console.log(message);
+};
+
+exports.default = {
+	announce: announce,
+	log: log
+};
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(0);
+module.exports = __webpack_require__(1);
+
 
 /***/ })
 /******/ ]);
