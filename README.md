@@ -12,7 +12,8 @@ Simple Cost Splitter JavaScript App
 ### Structure
 all sorce files are in src directory
 public folder has production files
----
+
+----
 
 ### Command
 `npm run dev` to compile
